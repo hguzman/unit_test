@@ -6,7 +6,7 @@ def test_llanta_es_instancia():
     llanta = Llanta('invierno', '16 pulgadas')
     assert isinstance(llanta, Llanta)
 
-def test_metodos_carro():
+def test_para_validar_si_permite_agregar_carroas_a_la_clase():
     carro = Carro('Corrola', 'Toyota', 2020)
     assert len (carro.llantas) == 0
     llanta1 = Llanta ('deportiva', '19 pulgadas')

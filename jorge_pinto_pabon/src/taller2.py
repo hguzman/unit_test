@@ -5,11 +5,8 @@ class Componente:
 
 
 class Computadora:
-    def __init__(self, modelo: str, marca: str, anio: int, componentes = []):
+    def __init__(self, modelo: str, marca: str, anio: int, componente):
         self.modelo = modelo
         self.marca = marca
         self.anio = anio
-        self.componentes = []
-
-    def add_componente(self, componente: Componente):
-        self.componentes.append(componente)
+        self.componentes = componente
