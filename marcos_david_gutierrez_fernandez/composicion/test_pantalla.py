@@ -8,12 +8,17 @@ def test_pantalla_valida():
     assert p.tipo == "OLED"
 
 def test_pantalla_tamaño_invalido():
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError) as mensajeError:
         Pantalla(5, "LCD")
+    assert str(mensajeError.value) == "tamaño incorrecto"
+
+    
 
 def test_pantalla_tipo_invalido():
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError) as mensajeError:
         Pantalla(12, 123)
+    assert str(mensajeError.value) == "tipo incorrecto"
+    
 
 def test_agregar_pantalla_valida():
     t = Telefono("123456789", "Smartphone")

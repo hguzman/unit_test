@@ -15,17 +15,20 @@ def test_varios_productos_validos():
     assert p3.nombre == "Huevos" and p3.precio == 9000
 
 def test_precio_invalido():
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError) as mensajeError:
         Producto("Pan", "caro")
+    assert str(mensajeError.value) == "Precio incorrecto"
 
 def test_nombre_invalido():
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError) as mensajeError:
         Producto(123, 1500)
+    assert str(mensajeError.value) == "Nombre incorrecto"
 
 def test_agregar_producto_no_valido():
     carrito = Carrito()
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError) as mensajeError:
         carrito.agregar_producto("No es un producto")
+    assert str(mensajeError.value) == "Debe ser un producto válido"
 
 def test_total():
     carrito = Carrito()
