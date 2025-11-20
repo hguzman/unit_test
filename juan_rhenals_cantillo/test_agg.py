@@ -1,4 +1,3 @@
-import pytest
 from agg import Rueda,VehiculoAgregado
 
 def test_agregacion_instancias():

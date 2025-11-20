@@ -1,4 +1,3 @@
-import pytest
 from comp import Motor, VehiculoCompuesto
 
 def test_composicion_instancias():
