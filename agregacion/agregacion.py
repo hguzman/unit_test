@@ -1,4 +1,4 @@
-#agregacion
+
 class Motor:
     def __init__(self, potencia):
         self.potencia = potencia

@@ -1,4 +1,4 @@
-#composicion
+
 class Corazon:
     def __init__(self):
         self.latidos = 0 
