@@ -3,17 +3,24 @@ class Motor:
         self.potencia = potencia
 
     def encender(self):
-        return "Motor encendido"
+        return f"Motor de {self.potencia} HP encendido"
 
 
 class Carro:
-    def __init__(self, marca, motor: Motor):
+    def __init__(self, marca):
         self.marca = marca
-        self.motor = motor
+        self.motores = []
 
-    def info(self):
-        return f"Carro {self.marca} con motor de {self.motor.potencia} HP"
+    def agregar_motor(self, motor):
+        self.motores.append(motor)
 
-    def encender_carro(self):
-        return self.motor.encender()
+    def info_motores(self):
+        return [motor.encender() for motor in self.motores]
+
+motor1 = Motor(100)
+
+mi_carro = Carro("Toyota")
+mi_carro.agregar_motor(motor1)
+
+
 
