@@ -1,4 +1,3 @@
-
 class Bateria:
     def __init__(self, capacidad):
         self.capacidad = capacidad  # en mAh
@@ -16,9 +15,9 @@ class Bateria:
         return self.nivel
 
 class Telefono:
-    def __init__(self, modelo, capacidad_bateria):
+    def __init__(self, modelo, bateria):
         self.modelo = modelo
-        self.bateria = Bateria(capacidad_bateria)
+        self.bateria = bateria
 
     def llamar(self, minutos):
         consumo = minutos * 10  # cada minuto consume 10 mAh
