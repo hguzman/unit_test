@@ -11,4 +11,4 @@ class Curso:
             self.estudiantes.append(est)
 
     def cantidad(self):
-        return len(self.estudiantes)    
+        return len(self.estudiantes)

@@ -3,9 +3,10 @@ class Bateria:
         self.capacidad = capacidad
 
 class Celular:
-    def __init__(self, marca):
+    DEFAULT_BATTERY_CAPACITY = 5000
+    def __init__(self, marca, bateria_capacidad=DEFAULT_BATTERY_CAPACITY):
         self.marca = marca
-        self.bateria = Bateria(5000)
+        self.bateria = Bateria(bateria_capacidad)
 
     def obtener_capacidad_bateria(self):
         return self.bateria.capacidad
