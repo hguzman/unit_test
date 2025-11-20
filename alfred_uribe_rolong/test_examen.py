@@ -14,12 +14,12 @@ def test_atributo_habitacion():
     assert hab.metros == 12
 
 def test_casa_tiene_una_habitacion():
-    hab = Habitacion("Cocina", 10)
+    hab = Habitacion("Cocina", 11)
     casa = Casa("Calle 123", hab)
 
     assert isinstance(casa.habitacion, Habitacion)
     assert casa.habitacion.nombre == "Cocina"
-    assert casa.habitacion.metros == 10
+    assert casa.habitacion.metros == 11
 
 
 #agregacion
