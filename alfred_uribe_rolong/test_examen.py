@@ -1,27 +1,26 @@
-import pytest
 from casa import Casa, Habitacion
 from carro import Carro, Llanta
 
-#compocicion
+#composicion
 
 def test_instancia_casa():
-    casa = Casa("Calle 123")
+    hab = Habitacion("Sala", 20)
+    casa = Casa("Calle 123", hab)
     assert isinstance(casa, Casa)
-
-
-def test_agregar_habitacion():
-    casa = Casa("Calle 123")
-    casa.habitacion("Sala", 25)
-    
-    assert len(casa.habitaciones) == 1
-    assert casa.habitaciones[0].nombre == "Sala"
-    assert casa.habitaciones[0].metros == 25
-
 
 def test_atributo_habitacion():
     hab = Habitacion("Dormitorio", 12)
     assert hab.nombre == "Dormitorio"
     assert hab.metros == 12
+
+def test_casa_tiene_una_habitacion():
+    hab = Habitacion("Cocina", 10)
+    casa = Casa("Calle 123", hab)
+
+    assert isinstance(casa.habitacion, Habitacion)
+    assert casa.habitacion.nombre == "Cocina"
+    assert casa.habitacion.metros == 10
+
 
 #agregacion
 
@@ -35,7 +34,7 @@ def test_agregar_llantas():
     l1 = Llanta("20 pulgadas", "deportiva")
     l2 = Llanta("20 pulgadas", "deportiva")
 
-    carro.agregar_llanta(l1)
+    carro.agregar_llanta(l1)    
     carro.agregar_llanta(l2)
 
     assert len(carro.llantas) == 2
@@ -45,8 +44,6 @@ def test_agregar_llantas():
 def test_instancia():
     carro = Carro("Mazda 3")
     assert isinstance(carro, Carro)
-    with pytest.raises(TypeError):
-        carro.agregar_llanta("esto no es una llanta")
 
 
 

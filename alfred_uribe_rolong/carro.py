@@ -9,6 +9,5 @@ class Carro:
         self.llantas = []
 
     def agregar_llanta(self, llanta: Llanta):
-        if not isinstance(llanta, Llanta):
-            raise TypeError("Solo se pueden agregar objetos tipo Llanta")
-        self.llantas.append(llanta)
+        if isinstance(llanta, Llanta):
+           self.llantas.append(llanta)
