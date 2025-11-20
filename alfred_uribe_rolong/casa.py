@@ -6,4 +6,4 @@ class Habitacion:
 class Casa:
     def __init__(self, direccion, habitacion:Habitacion):
         self.direccion = direccion
-        self.habitacion = habitacion
+        self.habitacion = habitacion if habitacion else Habitacion()
