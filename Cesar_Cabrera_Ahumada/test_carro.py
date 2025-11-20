@@ -3,7 +3,7 @@ from carro import Carro, Llanta
 from persona import Persona, Corazon
 # -------------test Carro y Llanta--------------------
 
-def test_crear_llanta():
+def test_validar_existencia_attributos():
     llanta = Llanta("17 pulgadas", "todo terreno")
     assert llanta.tamaño == "17 pulgadas"
     assert llanta.tipo == "todo terreno"
@@ -28,12 +28,14 @@ def test_agregar_llantas_al_carro():
 def test_agregar_llanta_invalida():
     carro = Carro("Mazda 3", "Mazda", 2022)
     assert isinstance(carro, Carro)
-    with pytest.raises(TypeError):
+    with pytest.raises(TypeError) as mierror:
         carro.agregar_llanta("esto no es una llanta")
+    assert str(mierror.value) == "Solo puedes agregar de tipo Llanta"
 
 # -------------test Persona--------------------
 def test_persona_tiene_corazon():
-    p = Persona("cesar", 20)
+    corazon = Corazon(70)
+    p = Persona("cesar", 20, corazon)
     assert isinstance(p.corazon, Corazon)
     assert p.corazon.ritmo == 70
     assert p.corazon.latir() == "El corazón late a 70 bpm" 
