@@ -3,8 +3,8 @@ from calculator import Carro, Llanta
 
 # Pruebas para la agregación Carro y Llanta
 def test_instancia_llanta():
-    llanta = Llanta("Michelin", 16)
-    assert llanta.marca == "Michelin"
+    llanta = Llanta("Michelinn", 16)
+    assert llanta.marca == "Michelinn"
     assert llanta.diametro == 16
 
 def test_instancia_carro():
