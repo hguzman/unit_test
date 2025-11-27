@@ -65,3 +65,6 @@ def test_metodo_megapixeles():
 
     celular = Celular("Samsung", "J2 Prime", cam1,cam2,cam3)
     assert celular.totalmegapixeles() == 168
+
+
+
