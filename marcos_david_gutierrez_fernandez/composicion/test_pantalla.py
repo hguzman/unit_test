@@ -12,19 +12,13 @@ def test_pantalla_tamaño_invalido():
         Pantalla(5, "LCD")
     assert str(mensajeError.value) == "tamaño incorrecto"
 
-    
-
 def test_pantalla_tipo_invalido():
     with pytest.raises(ValueError) as mensajeError:
         Pantalla(12, 123)
     assert str(mensajeError.value) == "tipo incorrecto"
     
-
-def test_agregar_pantalla_valida():
-    t = Telefono("123456789", "Smartphone")
-    p = Pantalla(16, "AMOLED")
-    t.agregar_pantalla(p)
-    assert t.pantalla == p
-
-
-
+def test_crear_telefono_con_pantalla():
+    t = Telefono("123456789", "Smartphone", 16, "AMOLED")
+    assert isinstance(t.pantalla, Pantalla)
+    assert t.pantalla.tamaño == 16
+    assert t.pantalla.tipo == "AMOLED"

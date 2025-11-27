@@ -6,5 +6,3 @@ class Pantalla:
             raise ValueError("tipo incorrecto")
         self.tamaño = tamaño
         self.tipo = tipo
-
-    
