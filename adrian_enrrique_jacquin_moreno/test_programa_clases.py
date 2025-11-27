@@ -8,7 +8,7 @@ def test_instancia_app ():
     assert isinstance(app, App)
 
 def test_instancia_tablet():
-    tablet = Tablet()
+    tablet = Tablet("apple")
     assert isinstance(tablet, Tablet)
 
 def test_have_atributos():
@@ -17,7 +17,7 @@ def test_have_atributos():
     assert app.descarga == 3
 
 def test_have_apps():
-    tablet = Tablet()
+    tablet = Tablet("samnsung")
     app1 = App("Snapchat", 2)
     app2 = App("Chrome", 4)
     tablet.instalar(app1)

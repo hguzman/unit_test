@@ -4,6 +4,9 @@ class App:
         self.descarga = descarga
 
 class Tablet:
-    apps = []
+    def __init__(self, marca):
+        self.marca = marca
+        self.apps = []
+        
     def instalar(self, app):
-        Tablet.apps.append(app)
+        self.apps.append(app)
