@@ -1,7 +1,7 @@
 import sys
 import os
 
-# Agregamos la carpeta src al PATH si tus archivos están allí
+# Agregamos la carpeta src al PATH si tus archivos están allí.
 sys.path.append(os.path.abspath("src"))
 
 from carro import Coche
