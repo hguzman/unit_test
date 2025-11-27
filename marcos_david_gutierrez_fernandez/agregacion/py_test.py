@@ -1,4 +1,3 @@
-#nose
 import pytest
 from carrito import Carrito
 from producto import Producto
