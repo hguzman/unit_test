@@ -1,25 +1,38 @@
-from house import Casa, Habitacion
+from house import Mueble,Casa
 
 def test_atributos():
-    casa = Casa("Calle 123", 3)
+    silla = Mueble("Silla")
+    sofaCama = Mueble("SofaCama")
+    casa = Casa("Carrera 38 # 27c-203")
 
-    # Valores
-    assert casa.direccion == "Calle 123"
-    assert len(casa.habitaciones) == 3
-    for habitacion in casa.habitaciones:
-        assert habitacion.area == 20.0
     
-def test_descripcion():
-    casa = Casa("Avenida 456", 4)
+    assert casa.direccion == "Carrera 38 # 27c-203"
+    assert silla.tipo == "Silla"
+    assert sofaCama.tipo == "SofaCama"
+    
 
-    descripcion_esperada = "Casa(direccion = Avenida 456, total de area = 80.0m2, numero de habitaciones = 4)"
-    assert casa.descripcion() == descripcion_esperada
+def test_agregar_muebles():
+    silla = Mueble("Silla")
+    sofaCama = Mueble("SofaCama")
+    casa = Casa("Carrera 38 # 27c-203")
 
-def test_verificar_tipo():
-    casa = Casa("Boulevard 789", 2)
+    casa.agregarMueble(silla)
+    casa.agregarMueble(sofaCama)
 
+    assert len(casa.muebles) == 2
+    assert casa.muebles[0] is silla
+    assert casa.muebles[1] is sofaCama
+
+def test_tipo_atributos():
+    silla = Mueble("Silla")
+    sofaCama = Mueble("SofaCama")
+    casa = Casa("Carrera 38 # 27c-203")
+
+    casa.agregarMueble(silla)
+    casa.agregarMueble(sofaCama)
+
+    assert isinstance(silla.tipo, str)
+    assert isinstance(sofaCama.tipo, str)
     assert isinstance(casa.direccion, str)
-    assert isinstance(casa.habitaciones, list)
-    for habitacion in casa.habitaciones:
-        assert isinstance(habitacion, Habitacion)
-        assert isinstance(habitacion.area, float)
+    for x in casa.muebles:
+        assert isinstance(x,Mueble)
