@@ -1,7 +1,10 @@
 from pantalla import Pantalla
 
 class Telefono:
-    def __init__(self, numero, tipo, tamaño_pantalla, tipo_pantalla):
+    def __init__(self, numero, tipo, pantalla):
         self.numero = numero
         self.tipo = tipo
-        self.pantalla = Pantalla(tamaño_pantalla, tipo_pantalla)
+        if not isinstance(pantalla, Pantalla):
+            raise ValueError("Pantalla inválida")
+
+        self.pantalla = pantalla
