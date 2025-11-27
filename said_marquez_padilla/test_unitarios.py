@@ -26,6 +26,7 @@ def test_atributos_biblioteca():
 
 def test_agregar_libro():
     biblioteca = Biblioteca("La Gran Mundo")
+    assert len(biblioteca.libros) == 0
     libro1 = Libro("Cien años de soledad", "Garcia Marquez", 1967)
     libro2 = Libro("Cronica de una muerte anunciada", "Garcia Marquez", 1981)
 
@@ -37,22 +38,30 @@ def test_agregar_libro():
 # Composicion
 
 def test_instancia_celular():
-    celular = Celular("Samsung", "S25 Ultra")
-    assert isinstance(celular,Celular)
+    cam1 = Camara("principal", 108)
+    cam2 = Camara("ultra angular", 48)
+    cam3 = Camara("macro", 5)
+    
+    celular = Celular("Samsung", "S25 Ultra", cam1, cam2, cam3)
+    assert isinstance(celular, Celular)
 
-def test_instancia_camara():
-    celular19 = Celular("Samsung", "J2 Prime")
-    assert isinstance(celular19.camara_principal, Camara)
-    assert isinstance(celular19.camara_ultra, Camara)
-    assert isinstance(celular19.camara_macro, Camara)
+def test_celular_tiene_camara():
+    cam_principal = Camara("principal", 200)
+    cam_ultra = Camara("ultra angular", 50)
+    cam_macro = Camara("macro", 8)
 
+    celular = Celular("Apple", "iPhone 17 Pro", cam_principal, cam_ultra, cam_macro)
 
-def test_atributo_celular():
-    celular = Celular("Apple", "Iphone 16 pro max")
-    assert celular.marca == "Apple"
-    assert celular.modelo == "Iphone 16 pro max"
+    assert isinstance(celular.camara_principal, Camara)
+    assert celular.camara_principal.megapixeles == 200
+    assert celular.camara_ultra.tipo == "ultra angular"
+    assert celular.camara_macro.megapixeles == 8
 
 
 def test_metodo_megapixeles():
-    celular = Celular("OnePlus", "13 Pro")
-    assert celular.totalmegapixeles() == 161
+    cam1 = Camara("Principal", 108)
+    cam2 = Camara("Ultra angular", 48)
+    cam3 = Camara("Macro", 12)
+
+    celular = Celular("Samsung", "J2 Prime", cam1,cam2,cam3)
+    assert celular.totalmegapixeles() == 168
