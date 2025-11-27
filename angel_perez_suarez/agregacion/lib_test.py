@@ -28,6 +28,10 @@ def test_atributos_libro():
 # --------------------
 def test_agregar_y_mostrar_libros():
     biblioteca = Biblioteca("Biblioteca Central")
+    
+    assert biblioteca is not None
+    assert biblioteca.nombre == "Biblioteca Central"
+
     libro1 = Libro("Cien años de soledad", "Gabriel García Márquez")
     libro2 = Libro("Don Quijote", "Miguel de Cervantes")
 

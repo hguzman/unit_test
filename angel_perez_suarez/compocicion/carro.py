@@ -1,10 +1,10 @@
 from motor import Motor
 
 class Coche:
-    def __init__(self, marca, potencia_motor):
+    def __init__(self, marca, motor):
         # Composición: el coche crea su propio motor
         self.marca = marca
-        self.motor = Motor(potencia_motor)
+        self.motor = motor
 
     def arrancar(self):
         self.motor.encender()
