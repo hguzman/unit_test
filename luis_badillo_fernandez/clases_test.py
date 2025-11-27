@@ -8,9 +8,8 @@ class Carrito:
         self.productos = []
         
     def add(self, producto):
-        if not isinstance(producto, Producto):
-            raise TypeError("Error")
-        self.productos.append(producto)
+        if isinstance(producto, Producto):
+            self.productos.append(producto)
         
 
 class Motor:
