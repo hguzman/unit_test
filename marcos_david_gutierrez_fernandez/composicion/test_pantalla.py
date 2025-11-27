@@ -18,6 +18,6 @@ def test_pantalla_tipo_invalido():
     assert str(mensajeError.value) == "tipo incorrecto"
     
 def test_crear_telefono_con_pantalla():
-    p = Pantalla()
+    p = Pantalla(16, "OLED")
     t = Telefono("123456789", "Smartphone", p)
     assert t.pantalla == p
