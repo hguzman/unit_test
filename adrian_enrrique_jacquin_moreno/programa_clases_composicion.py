@@ -4,7 +4,7 @@ class Teclado:
         self.inalambrico = inalambrico
 
 class Computador:
-    def __init__(self, marca, almacenamiento):
+    def __init__(self, marca, almacenamiento, teclado:Teclado = None):
         self.marca = marca
         self.almacenamiento = almacenamiento
-        self.teclado = Teclado("Portugues", False)
+        self.teclado =teclado if teclado else Teclado("Portugues", False)
