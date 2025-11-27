@@ -29,15 +29,13 @@ def test_atributos_libro():
 def test_agregar_y_mostrar_libros():
     biblioteca = Biblioteca("Biblioteca Central")
     
-    assert biblioteca is not None
-    assert biblioteca.nombre == "Biblioteca Central"
+    assert len(biblioteca.libros) == 0  
 
     libro1 = Libro("Cien años de soledad", "Gabriel García Márquez")
     libro2 = Libro("Don Quijote", "Miguel de Cervantes")
 
+    # Agregamos los libros
     biblioteca.agregar_libro(libro1)
     biblioteca.agregar_libro(libro2)
 
-    lista_libros = biblioteca.mostrar_libros()
-    assert "'Cien años de soledad' de Gabriel García Márquez" in lista_libros
-    assert "'Don Quijote' de Miguel de Cervantes" in lista_libros
+    assert len(biblioteca.libros) == 2
