@@ -6,3 +6,4 @@ class Auto:
     def __init__(self, marca):
         self.marca = marca
         self.motor = Motor("Gasolina")  
+

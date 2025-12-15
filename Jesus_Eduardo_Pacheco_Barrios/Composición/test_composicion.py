@@ -1,4 +1,4 @@
-from Carro import Auto
+from Carro import Auto, Motor
 
 
 def test_instancia_auto():
@@ -6,8 +6,13 @@ def test_instancia_auto():
     assert isinstance(auto, Auto)
 
 
-def test_auto_tiene_motor():
-    auto = Auto("Toyota")
+from Carro import Auto, Motor
 
-    assert auto.motor is not None
-    assert auto.motor.tipo == "Gasolina"
+
+def test_auto_tiene_motor():
+    auto01 = Auto("Toyota")
+
+    assert auto01.motor is not None
+    assert isinstance(auto01.motor, Motor)
+    assert auto01.motor.tipo == "Gasolina"
+
