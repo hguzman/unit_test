@@ -205,6 +205,5 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
-# Ignorar entorno virtual
-entorno_virtual/
-
+#ignorar entorno
+entorno/
