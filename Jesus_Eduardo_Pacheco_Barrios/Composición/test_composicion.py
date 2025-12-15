@@ -16,5 +16,5 @@ def test_auto_tiene_motor():
 
     assert auto01.motor is not None
     assert isinstance(auto01.motor, Motor)
-    assert auto01.motor.tipo == "Gasolina"
+    assert auto01.motor.tipo == "Electrico"
 
