@@ -11,6 +11,7 @@ def test_instancia():
     apren3 = Aprendiz("Sam")
 
     ambiente = Ambiente("segundo", 30)
+    assert len(ambiente.aprendices) == 0
     
     ambiente.agregarApren(apren1)
     ambiente.agregarApren(apren2)
