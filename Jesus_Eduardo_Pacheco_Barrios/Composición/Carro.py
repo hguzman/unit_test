@@ -3,7 +3,7 @@ class Motor:
         self.tipo = tipo
 
 class Auto:
-    def __init__(self, marca):
+    def __init__(self, marca, motor: Motor):
         self.marca = marca
         self.motor = Motor("Gasolina")  
 
