@@ -1,4 +1,3 @@
-
 from calculator_composicion import Telefono, Bateria
 
 
@@ -25,3 +24,8 @@ def test_telefono_cargar():
     assert tel.bateria.nivel < 120
     tel.cargar_telefono()
     assert tel.bateria.nivel == 120
+
+def test_bateria_en_telefono():
+    bateria = Bateria(3000)
+    telefono = Telefono("Modelo X", bateria)
+    assert telefono.bateria == bateria, "La batería no se agregó correctamente al teléfono"
