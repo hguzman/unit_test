@@ -1,51 +1,35 @@
 import boto3
 
-# Conexión a DynamoDB Local
-dynamodb = boto3.resource(
-    'dynamodb',
-    region_name='us-east-1',
-    endpoint_url='http://localhost:8000',
-    aws_access_key_id='dummy',
-    aws_secret_access_key='dummy'
-)
+class Dynamo:
+    def __init__(self):
+        self.dynamodb = boto3.resource(
+            'dynamodb',
+            region_name='us-east-1',
+            endpoint_url='http://localhost:8000',
+            aws_access_key_id='dummy',
+            aws_secret_access_key='dummy'
+        )
+        self.table = self.dynamodb.Table('DatosPersonales')
 
-# Nombre de la tabla
-table_name = 'DatosPersonales'
+    def guardar(self, cedula, nombre, edad):
+        self.table.put_item(
+            Item={
+                'cedula': cedula,
+                'nombre': nombre,
+                'edad': edad
+            }
+        )
 
-# Crear tabla
-try:
-    table = dynamodb.create_table(
-        TableName=table_name,
-        KeySchema=[
-            {'AttributeName': 'cedula', 'KeyType': 'HASH'}
-        ],
-        AttributeDefinitions=[
-            {'AttributeName': 'cedula', 'AttributeType': 'S'}
-        ],
-        ProvisionedThroughput={
-            'ReadCapacityUnits': 5,
-            'WriteCapacityUnits': 5
-        }
-    )
-    table.wait_until_exists()
-    print("Tabla creada correctamente")
+a = input("Ingrese su número de cédula: ")
+b = input("Ingrese su nombre: ")
+c = int(input("Ingrese su edad: "))
 
-except Exception:
-    table = dynamodb.Table(table_name)
-    print("La tabla ya existía")
+dyna = Dynamo()
 
-# Pedir datos al usuario
-cedula = input("Ingrese su número de cédula: ")
-nombre = input("Ingrese su nombre: ")
-edad = int(input("Ingrese su edad: "))
+dyna.cedula = a
+dyna.nombre = b
+dyna.edad = c
 
-# Guardar datos
-table.put_item(
-    Item={
-        'cedula': cedula,
-        'nombre': nombre,
-        'edad': edad
-    }
-)
+dyna.guardar(a, b, c)
 
-print("Datos personales guardados correctamente")
+print(" Datos personales guardados correctamente")
